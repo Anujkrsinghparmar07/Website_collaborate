@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Crop Advisor | Agricultural Recommendation System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1><i class="fas fa-leaf"></i> Smart Crop Advisor</h1>
+                <p>AI-powered crop recommendations for optimal agricultural yield</p>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <section class="input-section card">
+                <h2><i class="fas fa-tractor"></i> Enter Your Farm Details</h2>
+                <form id="cropForm" class="input-form">
+                    <div class="form-group">
+                        <label for="region"><i class="fas fa-map-marker-alt"></i> Region Name</label>
+                        <input type="text" id="region" placeholder="Enter your region/district">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="startMonth"><i class="fas fa-calendar-alt"></i> Start Month</label>
+                            <select id="startMonth" class="styled-select"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="endMonth"><i class="fas fa-calendar-alt"></i> End Month</label>
+                            <select id="endMonth" class="styled-select"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="minTemp"><i class="fas fa-temperature-low"></i> Min Temp (°C)</label>
+                            <input type="number" id="minTemp" placeholder="15">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxTemp"><i class="fas fa-temperature-high"></i> Max Temp (°C)</label>
+                            <input type="number" id="maxTemp" placeholder="30">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rainfall"><i class="fas fa-cloud-rain"></i> Rainfall (mm)</label>
+                            <input type="number" id="rainfall" placeholder="120">
+                        </div>
+                        <div class="form-group">
+                            <label for="humidity"><i class="fas fa-tint"></i> Humidity (%)</label>
+                            <input type="number" id="humidity" min="0" max="100" placeholder="60">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="soilType"><i class="fas fa-mountain"></i> Soil Type</label>
+                        <select id="soilType" class="styled-select"></select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nitrogen"><i class="fas fa-atom"></i> Nitrogen</label>
+                            <select id="nitrogen" class="styled-select"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phosphorus"><i class="fas fa-atom"></i> Phosphorus</label>
+                            <select id="phosphorus" class="styled-select"></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="potassium"><i class="fas fa-atom"></i> Potassium</label>
+                            <select id="potassium" class="styled-select"></select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="waterAvailability"><i class="fas fa-water"></i> Water Availability</label>
+                        <select id="waterAvailability" class="styled-select"></select>
+                    </div>
+
+                    <button type="button" id="recommendBtn" class="primary-btn">
+                        <i class="fas fa-seedling"></i> Get Recommendations
+                    </button>
+                </form>
+            </section>
+
+            <section id="results" class="results-section card">
+                <div class="results-header">
+                    <h2><i class="fas fa-chart-line"></i> Recommendations for <span id="regionName">Your Region</span></h2>
+                    <p class="season-info">Growing season: <span id="seasonRange">January to December</span></p>
+                </div>
+
+                <div class="recommendation-categories">
+                    <div class="category-card best-category">
+                        <h3><i class="fas fa-star"></i> Best Suited Crops</h3>
+                        <div id="bestCrops" class="crop-grid"></div>
+                    </div>
+
+                    <div class="category-card good-category">
+                        <h3><i class="fas fa-thumbs-up"></i> Good Options</h3>
+                        <div id="goodCrops" class="crop-grid"></div>
+                    </div>
+
+                    <div class="category-card average-category">
+                        <h3><i class="fas fa-info-circle"></i> Average Suitability</h3>
+                        <div id="averageCrops" class="crop-grid"></div>
+                    </div>
+                </div>
+
+                <div class="results-tables">
+                    <div class="table-container">
+                        <h3><i class="fas fa-money-bill-wave"></i> Cash Crops</h3>
+                        <div class="table-scroll">
+                            <table id="cashCropsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Crop</th>
+                                        <th>Suitability</th>
+                                        <th>Season</th>
+                                        <th>Water</th>
+                                        <th>Soil</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="table-container">
+                        <h3><i class="fas fa-utensils"></i> Food Crops</h3>
+                        <div class="table-scroll">
+                            <table id="foodCropsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Crop</th>
+                                        <th>Suitability</th>
+                                        <th>Season</th>
+                                        <th>Water</th>
+                                        <th>Soil</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>© 2023 Alok, Anuj collaborations | Agricultural Decision Support System</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
