@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UmbraLux - Commercial Umbrellas</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-black font-sans">
+
+    <!-- Announcement Bar -->
+    <div class="bg-black text-white text-center py-2 text-xs font-bold tracking-widest uppercase">
+        Get Flat 15% OFF On Bulk Orders — Limited Time!
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 transition-shadow duration-300">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden p-2" onclick="toggleMenu()" aria-label="Toggle Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+
+            <!-- Navigation (Desktop) -->
+            <nav class="hidden lg:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#patio" class="hover:text-gold transition">PATIO</a>
+                <a href="#market" class="hover:text-gold transition">MARKET</a>
+                <a href="#cantilever" class="hover:text-gold transition">CANTILEVER</a>
+                <a href="#bases" class="hover:text-gold transition">BASES</a>
+                <a href="#about" class="hover:text-gold transition">ABOUT US</a>
+            </nav>
+
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-serif font-bold tracking-tighter mx-auto lg:mx-0">
+                UMBRALUX
+            </a>
+
+            <!-- Icons -->
+            <div class="flex items-center space-x-4">
+                <button aria-label="Search" class="p-2 hover:text-gold transition">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button aria-label="Cart" class="p-2 hover:text-gold transition relative">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="absolute top-0 right-0 bg-gold text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform -translate-x-full transition-transform duration-300 lg:hidden pt-24 px-6">
+        <nav class="flex flex-col space-y-6 text-lg font-medium">
+            <a href="#patio" onclick="toggleMenu()">Patio</a>
+            <a href="#market" onclick="toggleMenu()">Market</a>
+            <a href="#cantilever" onclick="toggleMenu()">Cantilever</a>
+            <a href="#bases" onclick="toggleMenu()">Bases</a>
+            <a href="#about" onclick="toggleMenu()">About Us</a>
+            <hr>
+            <a href="#" class="text-sm">Account</a>
+            <a href="#" class="text-sm">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-[85vh] bg-gray-100 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Hero Image: Luxury Pool/Umbrella Scene -->
+            <div class="w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544257884-297d0284411d?q=80&w=2942&auto=format&fit=crop'); filter: brightness(0.65);"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4">
+            <h2 class="text-sm md:text-base tracking-[0.3em] font-medium mb-4 uppercase animate-fade-in" style="animation-delay: 0.2s">Mastered for the Shade</h2>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-8 leading-tight animate-fade-in" style="animation-delay: 0.4s">BOLD. RESILIENT. CLASSIC.</h1>
+            <a href="#collections" class="inline-block bg-white text-black px-10 py-4 text-xs font-bold tracking-widest hover:bg-gold hover:text-white transition duration-300 uppercase animate-fade-in" style="animation-delay: 0.6s">
+                Shop The Collection
+            </a>
+        </div>
+    </section>
+
+    <!-- Split Banner Section -->
+    <section class="grid grid-cols-1 md:grid-cols-2">
+        <!-- Patio Series -->
+        <div id="patio" class="relative h-[650px] group overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition"></div>
+            <div class="absolute bottom-16 left-0 right-0 text-center text-white">
+                <h3 class="text-3xl font-serif font-bold mb-2">THE PATIO SERIES</h3>
+                <p class="text-xs tracking-widest mb-8 uppercase opacity-90">The Gentleman's Evening Shade</p>
+                <a href="#collections" class="inline-block border border-white text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-white hover:text-black transition uppercase">Shop Patio</a>
+            </div>
+        </div>
+        <!-- Market Series -->
+        <div id="market" class="relative h-[650px] group overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition duration-700 group-hover:scale-105" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition"></div>
+            <div class="absolute bottom-16 left-0 right-0 text-center text-white">
+                <h3 class="text-3xl font-serif font-bold mb-2">THE MARKET SERIES</h3>
+                <p class="text-xs tracking-widest mb-8 uppercase opacity-90">Summer That Never Ends</p>
+                <a href="#collections" class="inline-block border border-white text-white px-8 py-3 text-xs font-bold tracking-widest hover:bg-white hover:text-black transition uppercase">Shop Market</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-4 md:px-0 bg-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">BUILD YOUR LEGACY IN THE SHADE</h2>
+            <div class="w-20 h-0.5 bg-gold mx-auto mb-10"></div>
+            <p class="text-gray-600 leading-relaxed mb-10 text-lg font-light">
+                UmbraLux offers a classic shading experience for the business that appreciates luxury. In a world of constant sun, our meticulously crafted umbrellas, canopies, and shading solutions infuse your outdoor space with a sense of poise and power. More than mere products, they are a bold statement. From wind-resistant cantilevers to meticulously curated market umbrellas, each UmbraLux creation is expertly refined to amplify your presence and build an enduring legacy.
+            </p>
+            <a href="#" class="text-xs font-bold tracking-widest border-b-2 border-black pb-1 hover:text-gold hover:border-gold transition uppercase">Read Our Story</a>
+        </div>
+    </section>
+
+    <!-- Featured Products (Tabs/Grid) -->
+    <section id="collections" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif font-bold mb-8">OUR COLLECTION</h2>
+                <div class="flex justify-center space-x-12 text-sm font-bold tracking-widest">
+                    <button class="border-b-2 border-black pb-1 transition-all" hx-get="/products/all" hx-target="#product-grid">ALL</button>
+                    <button class="text-gray-400 hover:text-black transition-all" hx-get="/products/patio" hx-target="#product-grid">PATIO</button>
+                    <button class="text-gray-400 hover:text-black transition-all" hx-get="/products/market" hx-target="#product-grid">MARKET</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-12">
+
+                <!-- Product 1 (Cantilever - Patio) -->
+                <div class="group fade-in-up">
+                    <div class="relative aspect-[3/4] overflow-hidden mb-5 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1597423244036-ef5020e8d2da?q=80&w=800&auto=format&fit=crop" alt="Titan Cantilever" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <span class="absolute top-2 left-2 bg-black text-white text-[10px] px-3 py-1 uppercase tracking-widest font-bold">Best Seller</span>
+                        <button class="absolute bottom-0 left-0 right-0 bg-white text-black py-4 text-xs font-bold uppercase translate-y-full group-hover:translate-y-0 transition duration-300 hover:bg-gold hover:text-white">Add to Cart</button>
+                    </div>
+                    <h3 class="text-base font-serif font-bold mb-1">TITAN CANTILEVER</h3>
+                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Heavy Duty Shade</p>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm font-medium">$1,400.00</span>
+                        <span class="text-xs text-red-500 line-through">$1,800.00</span>
+                    </div>
+                </div>
+
+                <!-- Product 2 (Market - Market) -->
+                <div class="group fade-in-up">
+                    <div class="relative aspect-[3/4] overflow-hidden mb-5 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1622396091004-747d33d97f28?q=80&w=800&auto=format&fit=crop" alt="Breeze Market" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <button class="absolute bottom-0 left-0 right-0 bg-white text-black py-4 text-xs font-bold uppercase translate-y-full group-hover:translate-y-0 transition duration-300 hover:bg-gold hover:text-white">Add to Cart</button>
+                    </div>
+                    <h3 class="text-base font-serif font-bold mb-1">BREEZE MARKET</h3>
+                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Lightweight & Durable</p>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm font-medium">$450.00</span>
+                    </div>
+                </div>
+
+                <!-- Product 3 (Patio - Patio) -->
+                <div class="group fade-in-up">
+                    <div class="relative aspect-[3/4] overflow-hidden mb-5 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1599423912631-5cb957452d3a?q=80&w=800&auto=format&fit=crop" alt="Oasis Patio" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <button class="absolute bottom-0 left-0 right-0 bg-white text-black py-4 text-xs font-bold uppercase translate-y-full group-hover:translate-y-0 transition duration-300 hover:bg-gold hover:text-white">Add to Cart</button>
+                    </div>
+                    <h3 class="text-base font-serif font-bold mb-1">OASIS PATIO</h3>
+                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Classic Wood Finish</p>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm font-medium">$850.00</span>
+                        <span class="text-xs text-red-500 line-through">$999.00</span>
+                    </div>
+                </div>
+
+                <!-- Product 4 (LED - Market) -->
+                <div class="group fade-in-up">
+                    <div class="relative aspect-[3/4] overflow-hidden mb-5 bg-gray-200">
+                        <img src="https://images.unsplash.com/photo-1517646331032-9e8563c523a1?q=80&w=800&auto=format&fit=crop" alt="Eclipse LED" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                        <span class="absolute top-2 left-2 bg-white text-black text-[10px] px-3 py-1 uppercase tracking-widest font-bold">New Arrival</span>
+                        <button class="absolute bottom-0 left-0 right-0 bg-white text-black py-4 text-xs font-bold uppercase translate-y-full group-hover:translate-y-0 transition duration-300 hover:bg-gold hover:text-white">Add to Cart</button>
+                    </div>
+                    <h3 class="text-base font-serif font-bold mb-1">ECLIPSE LED</h3>
+                    <p class="text-xs text-gray-500 mb-2 uppercase tracking-wide">Solar Powered Lights</p>
+                    <div class="flex items-center space-x-3">
+                        <span class="text-sm font-medium">$1,200.00</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="#" class="inline-block bg-black text-white px-12 py-4 text-xs font-bold tracking-widest hover:bg-gold transition duration-300 uppercase">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-white overflow-hidden border-t border-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-center text-3xl font-serif font-bold mb-16">BUILDING A LEGACY</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="p-4">
+                    <div class="text-gold text-2xl mb-6">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 font-light text-lg">"My hotel patio went from unusable to the most popular spot. The Titan series is a game changer. Plus, it looks amazing."</p>
+                    <p class="font-bold text-xs tracking-widest uppercase">Robert S. — Hotel Manager</p>
+                </div>
+                <div class="p-4 md:border-l md:border-r border-gray-100">
+                    <div class="text-gold text-2xl mb-6">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 font-light text-lg">"The durability of these umbrellas is unmatched. We had a storm last week and they held up perfectly."</p>
+                    <p class="font-bold text-xs tracking-widest uppercase">Amanda K. — Restaurant Owner</p>
+                </div>
+                <div class="p-4">
+                    <div class="text-gold text-2xl mb-6">★★★★★</div>
+                    <p class="text-gray-600 italic mb-8 font-light text-lg">"Wasn't expecting much, but the Eclipse LED actually transformed our evening dining experience. Respect!"</p>
+                    <p class="font-bold text-xs tracking-widest uppercase">James T. — Estate Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-20 pb-10 border-t-4 border-gold">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="col-span-1 md:col-span-1">
+                <h4 class="text-2xl font-serif font-bold mb-8">UMBRALUX</h4>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">Mastered for the Shade.<br>Bold. Brilliant. Classic.</p>
+                <div class="flex space-x-6">
+                    <!-- Social Icons -->
+                    <a href="#" class="text-gray-400 hover:text-gold transition text-sm font-bold tracking-widest">FB</a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition text-sm font-bold tracking-widest">IG</a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition text-sm font-bold tracking-widest">TW</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold tracking-widest uppercase mb-8 text-gold">Top Categories</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Patio Series</a></li>
+                    <li><a href="#" class="hover:text-white transition">Market Series</a></li>
+                    <li><a href="#" class="hover:text-white transition">Cantilever</a></li>
+                    <li><a href="#" class="hover:text-white transition">Bases & Weights</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold tracking-widest uppercase mb-8 text-gold">Customer Service</h4>
+                <ul class="space-y-4 text-sm text-gray-400">
+                    <li><a href="#" class="hover:text-white transition">Terms & Conditions</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Shipping & Returns</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold tracking-widest uppercase mb-8 text-gold">Join The Club</h4>
+                <p class="text-sm text-gray-400 mb-6">Get the scoop on our latest drops, exclusive offers, and shade tips.</p>
+                <form class="flex border-b border-gray-600 pb-2">
+                    <input type="email" placeholder="Email Address" class="bg-transparent border-none outline-none text-white w-full placeholder-gray-500 text-sm py-2">
+                    <button type="submit" class="text-xs font-bold uppercase hover:text-gold transition pl-4">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 border-t border-gray-800 pt-8 text-center text-[10px] text-gray-600 uppercase tracking-widest">
+            <p>&copy; 2025 UMBRALUX COMMERCIAL SHADES. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
